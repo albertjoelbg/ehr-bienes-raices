@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import PropertyCard from '../components/PropertyCard.astro';
+import Testimonials from '../components/Testimonials.astro';
+
+const properties = [
+    {
+        image: '/images/property1.jpg',
+        title: 'Hermosa casa familiar',
+        description: 'Una hermosa casa familiar situada en el corazón de la ciudad.',
+        price: '250,000'
+    },
+    {
+        image: '/images/property2.jpg',
+        title: 'Apartamento Moderno',
+        description: 'Un apartamento moderno con todas las comodidades.',
+        price: '150,000'
+    },
+    {
+        image: '/images/property3.jpg',
+        title: 'Casita acogedora',
+        description: 'Una acogedora casa de campo en un barrio tranquilo.',
+        price: '100,000'
+    }
+];
+---
+<BaseLayout>
+    <Hero/>
+    <section class="container mx-auto p-8">
+        <h2 class="text-3xl font-bold mb-4">Propiedades en Venta</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {properties.map(property => (
+                    <PropertyCard {...property}/>
+            ))}
+        </div>
+    </section>
+    <Testimonials/>
+</BaseLayout>
